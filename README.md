@@ -44,6 +44,28 @@ The app runs locally at:
 http://127.0.0.1:5000
 ```
 
+## Deployment
+
+For Render or a similar Python hosting platform:
+
+```bash
+pip install -r requirements.txt
+```
+
+Use this start command:
+
+```bash
+gunicorn app:app
+```
+
+Set this environment variable before deploying:
+
+```text
+SECRET_KEY=<secure-random-value>
+```
+
+The SQLite database is created and seeded automatically on first run. Set `DATABASE_PATH` only if the deployment platform needs the database file in a specific writable location.
+
 ## Project Structure
 
 ```text

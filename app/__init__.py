@@ -1,3 +1,5 @@
+import os
+
 from flask import Flask, jsonify
 
 from .db import close_db, init_db
@@ -8,8 +10,8 @@ from .security import add_security_headers
 def create_app():
     app = Flask(__name__, instance_relative_config=True)
     app.config.from_mapping(
-        DATABASE=app.instance_path + "/portfolio.db",
-        SECRET_KEY="dev-change-me",
+        DATABASE=os.environ.get("DATABASE_PATH", app.instance_path + "/portfolio.db"),
+        SECRET_KEY=os.environ.get("SECRET_KEY", "dev-change-me-local-only"),
     )
 
     app.teardown_appcontext(close_db)
@@ -31,3 +33,6 @@ def register_error_handlers(app):
     @app.errorhandler(500)
     def server_error(error):
         return jsonify({"error": "Something went wrong."}), 500
+
+
+app = create_app()
