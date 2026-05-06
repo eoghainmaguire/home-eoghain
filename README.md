@@ -4,7 +4,7 @@ A personal cybersecurity portfolio built with Flask, SQLite, HTML, CSS, and vani
 
 ## Overview
 
-`/home/eoghain` is a clean, terminal-inspired portfolio site for presenting selected cybersecurity projects and contact details. The design borrows lightly from a personal Linux home directory, but the site uses normal navigation and a simple responsive layout rather than a command-line interface.
+`/home/eoghain` is a clean, terminal-inspired portfolio site for presenting my projects and contact details.
 
 The portfolio currently highlights two completed projects:
 
@@ -19,7 +19,6 @@ The portfolio currently highlights two completed projects:
 - Clean responsive frontend
 - Security-focused project presentation
 - Basic security headers
-- Simulated command API functionality
 
 ## Tech Stack
 
@@ -55,7 +54,6 @@ home-eoghain/
 │   ├── routes.py
 │   ├── db.py
 │   ├── seed.py
-│   ├── commands.py
 │   ├── security.py
 │   ├── templates/
 │   └── static/
@@ -64,8 +62,6 @@ home-eoghain/
 
 ## Security Notes
 
-- Command-style API behaviour is simulated and does not execute shell commands.
-- Command input is handled through a strict allowlist.
 - Security headers are applied to responses.
 - Public routes are read-only except for the controlled command API endpoint.
 - No production secrets should be committed.
